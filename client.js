@@ -21,7 +21,7 @@ const connect = () => {
         i = 0;
         j++;
       }
-    }, 150);
+    }, 100);
   });
   return conn;
 }
