@@ -14,15 +14,18 @@ const connect = () => {
     conn.write('Name: PQR');
     const directions = ['up', 'right', 'down', 'left'];
     let i = 0; let j = 0;
-    const interval = setInterval(() => {
-      conn.write(`Move: ${directions[j % 4]}`);
-      i++;
-      if (i == 7) {
-        i = 0;
-        j++;
-      }
-    }, 100);
+    // const interval = setInterval(() => {
+    //   conn.write(`Move: ${directions[j % 4]}`);
+    //   i++;
+    //   if (i == 7) {
+    //     i = 0;
+    //     j++;
+    //   }
+    // }, 100);
   });
+  conn.on('error', (error) => {
+    console.log(`FATAL ERROR YOU LOST: ${error}`);
+  })
   return conn;
 }
 
